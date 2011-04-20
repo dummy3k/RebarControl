@@ -37,6 +37,7 @@ namespace RebarDotNet
 		private int _maxHeight = 0;
 		private int _minHeight = 24;
 		private int _minWidth = 24;
+        private int _initalWidth = 0;
 		private bool _newRow = true;
 		private Bitmap _backgroundImage = null;
 		private IntPtr _pictureHandle = IntPtr.Zero;
@@ -304,6 +305,8 @@ namespace RebarDotNet
 					rbBand.cyChild = (uint)_minHeight;
 					rbBand.cyMaxChild = 40;
 					rbBand.cxIdeal = (uint)_idealWidth;
+                    rbBand.cx = (uint)_initalWidth;
+                    rbBand.fMask = rbBand.fMask | (uint)RebarBandInfoConstants.RBBIM_SIZE;
 				}
 				if(_showIcon)
 				{
@@ -1264,6 +1267,35 @@ namespace RebarDotNet
 			{
 				return Bounds.Width;
 			}
+            set
+            {
+                if (!Created)
+                {
+                    _initalWidth = value;
+                }
+                else
+                {
+                    REBARBANDINFO rbBand = new REBARBANDINFO();
+                    rbBand.cbSize = (uint)Marshal.SizeOf(rbBand);
+                    rbBand.fMask = (uint)RebarBandInfoConstants.RBBIM_SIZE;
+                    rbBand.cx = (uint)value;
+
+                    if (User32Dll.SendMessage(_bands.Rebar.RebarHwnd, (int)WindowsMessages.RB_SETBANDINFOA, BandIndex, ref rbBand) == 0)
+                    {
+                        int LastErr = Marshal.GetHRForLastWin32Error();
+                        try
+                        {
+                            Marshal.ThrowExceptionForHR(LastErr);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(LastErr + " " + ex.Message);
+                            if (_throwExceptions) throw (new Exception("Error Updating Styles.", ex));
+                        }
+
+                    }
+                }
+            }
 		}
 	}
 }
