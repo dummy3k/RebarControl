@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RebarDotNet", "RebarDotNet.csproj", "{2323ABD0-509B-4180-BC31-7BD57053CE86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsUtilities", "..\WindowsUtilities\WindowsUtilities.csproj", "{A1D7AF7F-6F76-4289-8142-282BCAC53BAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{2323ABD0-509B-4180-BC31-7BD57053CE86}.Debug.ActiveCfg = Debug|.NET
+		{2323ABD0-509B-4180-BC31-7BD57053CE86}.Debug.Build.0 = Debug|.NET
+		{2323ABD0-509B-4180-BC31-7BD57053CE86}.Release.ActiveCfg = Release|.NET
+		{2323ABD0-509B-4180-BC31-7BD57053CE86}.Release.Build.0 = Release|.NET
+		{A1D7AF7F-6F76-4289-8142-282BCAC53BAC}.Debug.ActiveCfg = Debug|.NET
+		{A1D7AF7F-6F76-4289-8142-282BCAC53BAC}.Debug.Build.0 = Debug|.NET
+		{A1D7AF7F-6F76-4289-8142-282BCAC53BAC}.Release.ActiveCfg = Release|.NET
+		{A1D7AF7F-6F76-4289-8142-282BCAC53BAC}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
