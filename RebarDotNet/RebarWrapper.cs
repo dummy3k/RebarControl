@@ -64,7 +64,7 @@ namespace RebarDotNet
 		[Category("Behavior"),
 		DefaultValue(true),
 		NotifyParentProperty(true)]
-		public bool AutoSize
+		public override bool AutoSize
 		{
 			get
 			{
